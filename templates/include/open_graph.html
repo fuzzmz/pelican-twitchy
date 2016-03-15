@@ -20,11 +20,16 @@
     {% if article.og_image %}
         <meta property="og:image"
               content="{{ SITEURL }}/{{ article.og_image }}"/>
+        <meta property="twitter:card" content="summary_large_image">
     {% elif OPEN_GRAPH_IMAGE %}
         <meta property="og:image"
               content="{{ SITEURL }}/{{ OPEN_GRAPH_IMAGE }}"/>
+        <meta property="twitter:card" content="summary_large_image">
+    {% else %}
+        <meta property="twitter:card" content="summary" />
     {% endif %}
 {% elif page %}
+    <meta property="twitter:card" content="summary" />
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="{{ page.title|striptags|escape }}"/>
     <meta property="og:url" content="{{ SITEURL }}/{{page.url}}"/>
@@ -37,9 +42,13 @@
     {% if page.og_image %}
         <meta property="og:image"
               content="{{ SITEURL }}/{{ page.og_image }}"/>
+        <meta property="twitter:card" content="summary_large_image">
     {% elif OPEN_GRAPH_IMAGE %}
         <meta property="og:image"
               content="{{ SITEURL }}/{{ OPEN_GRAPH_IMAGE }}"/>
+        <meta property="twitter:card" content="summary_large_image">
+    {% else %}
+        <meta property="twitter:card" content="summary" />
     {% endif %}
 {% else %}
     <meta property="og:type" content="website"/>
@@ -49,5 +58,8 @@
     {% if OPEN_GRAPH_IMAGE %}
         <meta property="og:image"
         content="{{ SITEURL }}/{{ OPEN_GRAPH_IMAGE }}"/>
+        <meta property="twitter:card" content="summary_large_image">
+    {% else %}
+        <meta property="twitter:card" content="summary" />
     {% endif %}
 {% endif %}
